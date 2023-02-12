@@ -1,7 +1,9 @@
 import React from "react";
-import "./styles/NavBar.css";
+import "./NavBar.css";
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import CartWidget from "./CartWidget";
+import CartWidget from "../cartWidget/CartWidget";
+import esferaDragon from "../img/esferaDragon.png"
+import { Link } from "react-router-dom";
 
 
 const NavBar = ({subtitulo1,subtitulo2}) => {
@@ -15,7 +17,7 @@ return (
 
             <div className="col-md-5 col-lg-4 col-9 d-flex justify-content-around">
 
-                <a href=""><button className="botonNav">Inicio</button></a>
+            <Link to="/" className="botonNav">Inicio</Link>
                     <NavDropdown title="Comprar">
                     <NavDropdown.Item href="">Manga</NavDropdown.Item>
                     <NavDropdown.Item href="">Indumentaria</NavDropdown.Item>
@@ -32,7 +34,7 @@ return (
 
         <section className="seccionTitulo">
                 <div className="titulo d-flex align-items-center justify-content-center">
-                <img src="https://www.clipartmax.com/png/small/67-678820_esfera-del-dragon-de-7-estrella-render-hd-png-by-todoanimeoficial-esfera.png"/>
+                <img src={esferaDragon}/>
                     <h1>Z-Store</h1>
                 </div>
                 <div className="d-flex flex-column align-items-center">
