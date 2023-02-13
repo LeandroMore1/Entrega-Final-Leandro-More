@@ -15,7 +15,7 @@ return (
 
         <div className="d-flex fila justify-content-between  align-items-center">
 
-            <div className="col-md-5 col-lg-4 col-9 d-flex justify-content-around">
+            <div className="col-md-5 col-lg-4 col-9 d-flex justify-content-around linea">
 
             <Link to="/" className="botonNav">Inicio</Link>
                     <NavDropdown title="Comprar">

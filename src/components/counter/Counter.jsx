@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from 'react-bootstrap/Button';
+import "./Counter.css"
 
 const Counter = () => {
 
@@ -7,11 +8,11 @@ const Counter = () => {
 
     return(
         <>
-
+<div className="d-flex">
         <p>cantidad: {cant}</p>
-        <div className="d-flex">
-        <Button className="btnMenos" onClick={()=> setCant(cant-1)} size="md" variant="dark">-</Button>
-        <Button onClick={()=> setCant(cant+1)} size="md" variant="dark">+</Button>
+        
+        <Button className="btnCounter boton" onClick={()=> setCant(cant-1)} size="md" variant="dark">-</Button>
+        <Button className="btnCounter boton" onClick={()=> setCant(cant+1)} size="md" variant="dark">+</Button>
         </div>
         </>
     )

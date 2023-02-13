@@ -22,6 +22,9 @@ header{
     width: 45px;
 }
 
+.linea{
+    margin-left: 20px;
+}
 
 .fila{
     background-color: white;
@@ -68,6 +71,7 @@ h2{
 .seccionTitulo h1{
     font-size: 3em;
     font-weight: 700;
+    margin-left: -60px;
 }
 
 @media only screen and (min-width: 768px) {

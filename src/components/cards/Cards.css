@@ -1,0 +1,26 @@
+.boton{
+    background-color: #FD8F00;
+    border: none;
+    font-weight: 700;
+}
+
+.btnDetalles{
+    margin-top: 10px;
+}
+
+.stock{
+    font-weight: 700;
+}
+
+.cardImg{
+    height: 240px;
+}
+
+.card{
+    margin-bottom: 50px;
+
+}
+
+div{
+    column-gap: 50px;
+}

@@ -1,23 +1,23 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ItemListContainer from './components/itemListContainer/ItemListContainer';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ItemListContainer from "./components/itemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
-
-  
   return (
     <>
-    
-    {/* <ItemListContainer  greeting="Nuestros Productos"/> */}
-    <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<ItemListContainer greeting="Nuestros Productos"/>}/>
-    </Routes>
-    </BrowserRouter>
-    
+      <BrowserRouter>
 
+        <Routes>
+          
+          <Route path="/" element={<ItemListContainer greeting="Nuestros Productos" />}/>
+          <Route path="/Item/:id" element={<ItemDetailContainer />}/>
+
+        </Routes>
+
+      </BrowserRouter>
     </>
   );
 }
