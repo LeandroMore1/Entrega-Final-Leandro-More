@@ -19,9 +19,9 @@ return (
 
             <Link to="/" className="botonNav">Inicio</Link>
                     <NavDropdown title="Comprar">
-                    <NavDropdown.Item href="">Manga</NavDropdown.Item>
-                    <NavDropdown.Item href="">Indumentaria</NavDropdown.Item>
-                    <NavDropdown.Item href="">Figuras</NavDropdown.Item>
+                    <NavDropdown.Item href=""><Link to="/Category/manga" className="navDropBtn">Manga</Link></NavDropdown.Item>             
+                     <NavDropdown.Item href=""><Link to="/Category/indumentaria" className="navDropBtn">Indumentaria</Link></NavDropdown.Item>
+                   <NavDropdown.Item href=""> <Link to="/Category/figuras" className="navDropBtn"> Figuras</Link> </NavDropdown.Item>              
                     </NavDropdown>
                 <a href=""> <button className="botonNav">Contacto</button></a>
                 <a href=""><button className="botonNav">Nosotros</button></a>
