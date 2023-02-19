@@ -6,6 +6,7 @@ import esferaDragon from "../img/esferaDragon.png"
 import { Link } from "react-router-dom";
 
 
+
 const NavBar = ({subtitulo1,subtitulo2}) => {
 return (
     <>
@@ -18,16 +19,16 @@ return (
             <div className="col-md-5 col-lg-4 col-9 d-flex justify-content-around linea">
 
             <Link to="/" className="botonNav">Inicio</Link>
-                    <NavDropdown title="Comprar">
-                    <NavDropdown.Item href=""><Link to="/Category/manga" className="navDropBtn">Manga</Link></NavDropdown.Item>             
-                     <NavDropdown.Item href=""><Link to="/Category/indumentaria" className="navDropBtn">Indumentaria</Link></NavDropdown.Item>
-                   <NavDropdown.Item href=""> <Link to="/Category/figuras" className="navDropBtn"> Figuras</Link> </NavDropdown.Item>              
-                    </NavDropdown>
+                    
+                    <Link to="/Category/manga" className="navDropBtn">Manga</Link>             
+                     <Link to="/Category/clothes" className="navDropBtn">Indumentaria</Link>
+                    <Link to="/Category/figures" className="navDropBtn"> Figuras</Link>               
+                   
                 <a href=""> <button className="botonNav">Contacto</button></a>
                 <a href=""><button className="botonNav">Nosotros</button></a>
                 
             </div>
-            <div className="carrito d-flex justify-content-between">
+            <div className="carrito d-flex justify-content-start">
                 <CartWidget />
             </div>
         </div>

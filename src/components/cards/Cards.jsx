@@ -14,47 +14,61 @@ const Cards = () => {
 
   const getProducts = async () => {
     const data = await getDocs(productsCollection);
-    setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  
-  };
+    if(categoria.category){
+    const dataCategory = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+    setProducts(dataCategory.filter(i=> i.category === categoria.category))
+      console.log(products)
+    }else {
 
-  //NOTE - aca intento hacer que si la categoria guardada  en use
-  //params() es igual a un string vacio, que ejecute get products, sino
-  //convierte a products en un array cuya categoria sea igual a la variable
-  // pero no se bien como hacerlo funcionar
+      setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  }
+}
 
-  // // useEffect(() => {
-  // //   if (categoria == ""){
-  // //     getProducts() 
-  // //   } else {
-  // //     setProducts(products.filter(item=>item.categoria === categoria))
-  // //   }
-
-  // // }, [categoria]);
 
   useEffect(()=>{
+
     getProducts()
-  },[])
 
+  },[categoria.category])
 
+ 
 
-  return (
-    <>
-      <div className="d-flex flex-wrap justify-content-center">
-      {products.map((product) => (
-        <Card className="card" key={product.id} style={{ width: "18rem" }}>
-          <Card.Img variant="top" className="cardImg" src={product.imgProduct} />
-          <Card.Body>
-            <Card.Title>{product.name}</Card.Title>
-        
-            <div className="d-flex justify-content-around">
-            <Link  variant="primary" className="btn btn-dark boton btnDetalles" to={`/Item/${product.id}`}>Ver Detalles</Link>
-            </div>
-          </Card.Body>
-        </Card>
-      ))}
-      </div>
-    </>
-  );
-};
+    return (
+  
+      <>
+  
+        <div className="d-flex flex-wrap justify-content-center">
+  
+        {products.map((product) => (
+  
+          <Card className="card" key={product.id} style={{ width: "18rem" }}>
+  
+            <Card.Img variant="top" className="cardImg" src={product.imgProduct} />
+  
+            <Card.Body>
+  
+              <Card.Title>{product.name}</Card.Title>
+  
+          
+  
+              <div className="d-flex justify-content-around">
+  
+              <Link  variant="primary" className="btn btn-dark boton btnDetalles" to={`/Item/${product.id}`}>Ver Detalles</Link>
+  
+              </div>
+  
+            </Card.Body>
+  
+          </Card>
+  
+        ))}
+  
+        </div>
+  
+      </>
+  
+    );
+  
+  }
+
 export default Cards;
