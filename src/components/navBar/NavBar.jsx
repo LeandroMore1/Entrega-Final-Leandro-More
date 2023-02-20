@@ -19,10 +19,14 @@ return (
             <div className="col-md-5 col-lg-4 col-9 d-flex justify-content-around linea">
 
             <Link to="/" className="botonNav">Inicio</Link>
-                    
-                    <Link to="/Category/manga" className="navDropBtn">Manga</Link>             
-                     <Link to="/Category/clothes" className="navDropBtn">Indumentaria</Link>
-                    <Link to="/Category/figures" className="navDropBtn"> Figuras</Link>               
+            <NavDropdown title="Categorias" id="basic-nav-dropdown">
+              <NavDropdown.Item href=""><Link to="/Category/manga" className="navDropBtn">Manga</Link>  </NavDropdown.Item>
+              <NavDropdown.Item href="">
+              <Link to="/Category/clothes" className="navDropBtn">Indumentaria</Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item href=""> <Link to="/Category/figures" className="navDropBtn"> Figuras</Link> </NavDropdown.Item>
+            </NavDropdown>
+                        
                    
                 <a href=""> <button className="botonNav">Contacto</button></a>
                 <a href=""><button className="botonNav">Nosotros</button></a>

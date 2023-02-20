@@ -29,7 +29,7 @@ const ItemDetailContainer = () => {
         getProduct()
       }, []);
 
-    
+    console.log(productId)
     return(
         <>
         <div className="description">
