@@ -1,7 +1,7 @@
 
 import "./ItemListContainer.css"
 
-import NavBar from "../navBar/NavBar";
+import NavBar from "../Header/Header";
 
 import Cards from "../cards/Cards"
 

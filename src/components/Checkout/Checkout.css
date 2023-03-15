@@ -1,18 +1,5 @@
-.description{
+.cuerpoCheckout{
     background-image: url("https://www.xtrafondos.com/descargar.php?id=3963&resolucion=3840x2160");
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-
-
-.btnVolver{
-    height: 35px;
-}
-
-.tituloDetail{
-    color: white;
-    padding-top: 20px;
-    font-size: 1.7em;
-    margin-bottom: 20px;
 }
