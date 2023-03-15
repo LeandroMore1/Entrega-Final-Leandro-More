@@ -1,6 +1,6 @@
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
-import CartWidget from '../cartWidget/CartWidget';
+import CartWidget from '../CartWidget/CartWidget';
 import "./NavBar.css"
 
 function NavBar(){

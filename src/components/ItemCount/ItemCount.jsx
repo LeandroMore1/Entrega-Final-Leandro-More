@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 import "./ItemCount.css"
 
-const ItemCount = ({stock}) => {
+const ItemCount = ({stock , onAdd}) => {
 
     const[cant,setCant] = useState(1)
 
@@ -28,7 +28,7 @@ const ItemCount = ({stock}) => {
         
         </div>
         <div className="d-flex justify-content-around">
-        <Button disabled={stock===0} variant="primary" className="boton">Agregar</Button>
+        <Button disabled={stock===0}  variant="primary" onClick={()=>onAdd(cant)} className="boton">Agregar</Button>
         <Link  to="/" variant="primary" className="btn btn-dark boton btnVolver">volver</Link>
         </div>
 

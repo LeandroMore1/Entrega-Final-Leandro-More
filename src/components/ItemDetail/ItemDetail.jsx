@@ -1,7 +1,16 @@
 import ItemCount from "../ItemCount/ItemCount.jsx";
 import Card from "react-bootstrap/Card";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext.js";
 
 const ItemDetail = ({product}) => {
+
+    const {agregarProducto} = useContext(CartContext);
+
+    const onAdd = (cant)=>{
+        agregarProducto(product,cant);
+    }
+
 
     return(
 
@@ -17,7 +26,7 @@ const ItemDetail = ({product}) => {
             <Card.Title>{product.name}</Card.Title>
             <Card.Text>{product.description}</Card.Text>
             <p className="stock">stock: {product.stock}</p>
-            <ItemCount stock={product.stock}/>
+            <ItemCount stock={product.stock} onAdd={onAdd}/>
      
         </Card.Body>
         </Card>
