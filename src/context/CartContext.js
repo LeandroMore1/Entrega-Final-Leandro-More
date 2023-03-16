@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 
 export const CartContext = createContext()
 
-export const CartProvider = ({children}) =>{
+export const CartProvider = ({children}) => {
 const [productCartList, setProductCartList] = useState([])
 
 const existeEnCart = (id)=>{
@@ -11,30 +11,40 @@ const existeEnCart = (id)=>{
     return existe;
 }
 
-const agregarProducto = (product, cantidad)=>{
+const agregarProducto = (producto, cantidad)=> {
     const listaActualizada = [...productCartList];
 
-    if(existeEnCart(product.ide)){
-        const indiceProducto = productCartList.findIndex(el=>el.ide===product.ide);
+    if(existeEnCart(producto.ide)){
+        const indiceProducto = productCartList.findIndex(el=>el.ide===producto.ide);
         listaActualizada[indiceProducto].cantTotal = listaActualizada[indiceProducto].cantTotal + cantidad;
         listaActualizada[indiceProducto].precioTotal = listaActualizada[indiceProducto].cantTotal * listaActualizada[indiceProducto].price;
         setProductCartList(listaActualizada)
     } else {
 
-        const productoAgregado={...product, cantTotal: cantidad, precioTotal: cantidad*product.price}
+        const productoAgregado={...producto, cantTotal: cantidad, precioTotal: cantidad*producto.price}
         const listaActualizada = [...productCartList];
         listaActualizada.push(productoAgregado);
         setProductCartList(listaActualizada);
     }
-}
+}   
 
-    const productosTotales = () =>{
+    const vaciarListaProductos = () =>{
+        setProductCartList([])
+    }
+
+    const productosTotales = () => {
         const totalProductos = productCartList.reduce((acum,prod)=>acum + prod.cantTotal,0);
         return totalProductos
     }
 
+    const eliminarProducto = (producto) => {
+        const lista = [...productCartList]
+        const nuevaLista = lista.filter(el=>el.ide !== producto )
+        setProductCartList(nuevaLista)
+    }
+
     return(
-        <CartContext.Provider value={{productCartList, productosTotales, agregarProducto, existeEnCart}}>
+        <CartContext.Provider value={{productCartList, productosTotales, agregarProducto, existeEnCart, eliminarProducto, vaciarListaProductos}}>
             {children}
         </CartContext.Provider>
     )

@@ -24,6 +24,18 @@ const ItemDetailContainer = () => {
         getProduct()
       }, []);
 
+      
+      //NOTE - dentro del return quise poner un condicional para que la pag tire error si el id del producto no existiera, pero 
+      // por alguna razon me tiraba error,  este es el codigo que quise usar dentro del return:
+      // //     {
+      //   product.ide === undefined? 
+      //   <p>error</p>   :<div className="description">
+      //  <ItemDetail product={product}/>
+      //  </div>
+        
+      // }
+
+
     return(
         <>
         <NavBar/>

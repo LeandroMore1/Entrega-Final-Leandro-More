@@ -1,5 +1,37 @@
 .cuerpoCheckout{
-    background-image: url("https://images4.alphacoders.com/610/610757.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+
+    height: 100%;
+    width: 100%;
+    color: black
+}
+
+.tituloCheckout{
+    margin-left: 50px;
+    margin-top: 40px;
+}
+
+.btnCheckout{
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    color: white;
+
+    height: 35px;
+    width: 150px;
+}
+
+.containerBtn{
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.textCarritoVacio{
+    text-align: center;
+    margin-top: 150px;
+    
+}
+
+.btnLimpiar{
+    background-color: red;
 }
