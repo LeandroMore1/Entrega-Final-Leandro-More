@@ -49,7 +49,7 @@ const Cards = () => {
   
               <Card.Title>{product.name}</Card.Title>
   
-          
+              
   
               <div className="d-flex justify-content-around">
   

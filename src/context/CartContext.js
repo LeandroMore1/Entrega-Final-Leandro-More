@@ -43,8 +43,13 @@ const agregarProducto = (producto, cantidad)=> {
         setProductCartList(nuevaLista)
     }
 
+    const totalPrecio = () =>{
+        const totalCompra = productCartList.reduce((acc, el)=> acc + el.precioTotal,0)
+        return totalCompra
+    }
+
     return(
-        <CartContext.Provider value={{productCartList, productosTotales, agregarProducto, existeEnCart, eliminarProducto, vaciarListaProductos}}>
+        <CartContext.Provider value={{productCartList, productosTotales, agregarProducto, existeEnCart, eliminarProducto, vaciarListaProductos, totalPrecio}}>
             {children}
         </CartContext.Provider>
     )

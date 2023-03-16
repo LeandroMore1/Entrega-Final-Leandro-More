@@ -42,7 +42,10 @@ const ItemDetail = ({product}) => {
         <Card.Body>
             <Card.Title>{product.name}</Card.Title>
             <Card.Text>{product.description}</Card.Text>
+            <div className="d-flex justify-evenly">
             <p className="stock">stock: {product.stock}</p>
+            <p className="stock">${product.price}</p>
+            </div>
             <ItemCount stock={product.stock} onAdd={onAdd}/>
             
      

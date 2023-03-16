@@ -1,15 +1,17 @@
 
-import "./Checkout.css"
+import "./Cart.css"
 import NavBar from "../NavBar/NavBar";
-import { CartContext } from "../../context/CartContext";
+import { CartContext, CartProvider } from "../../context/CartContext";
 import { useContext } from "react";
 import {CartProduct} from "../CartProduct/CartProduct";
 import Button from 'react-bootstrap/Button';
 import Swal from "sweetalert2";
+import { setDoc, doc } from "firebase/firestore";
 
-const Checkout = () => {
+const Cart = () => {
 
-    const {productCartList, vaciarListaProductos} = useContext(CartContext)
+    const {productCartList, vaciarListaProductos, totalPrecio} = useContext(CartContext)
+    
     console.log(productCartList)
 
     const afirmacion = () => {
@@ -62,7 +64,9 @@ const Checkout = () => {
               ))
             }
             <div className="d-flex containerBtn justify-content-evenly">
+            <p className="precioTotal">Total compra: {totalPrecio()}$</p>
             <Button variant="dark" onClick={alertaLimpiar} className="btnCheckout btnLimpiar">Vaciar carrito</Button>
+            
             <Button variant="dark" onClick={afirmacion}  className="btnCheckout">Comprar</Button>
             </div>
           </>
@@ -77,4 +81,4 @@ const Checkout = () => {
     )
 }
 
-export default Checkout
+export default Cart

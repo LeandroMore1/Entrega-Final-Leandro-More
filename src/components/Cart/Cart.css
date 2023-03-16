@@ -21,6 +21,11 @@
     width: 150px;
 }
 
+.precioTotal{
+    font-weight: 700;
+    font-size: 25px;
+}
+
 .containerBtn{
     margin-bottom: 40px;
     margin-top: 40px;
