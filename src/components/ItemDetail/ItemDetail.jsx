@@ -2,13 +2,30 @@ import ItemCount from "../ItemCount/ItemCount.jsx";
 import Card from "react-bootstrap/Card";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext.js";
+import { toast } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const ItemDetail = ({product}) => {
 
     const {agregarProducto} = useContext(CartContext);
+    const tostada = () => {
+        toast.success('Producto agregado al carrito!', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
+    }
 
     const onAdd = (cant)=>{
         agregarProducto(product,cant);
+        tostada();
     }
 
 
@@ -27,11 +44,13 @@ const ItemDetail = ({product}) => {
             <Card.Text>{product.description}</Card.Text>
             <p className="stock">stock: {product.stock}</p>
             <ItemCount stock={product.stock} onAdd={onAdd}/>
+            
      
         </Card.Body>
         </Card>
         </div>
         </div>
+        <ToastContainer/>
         </>
     )
 }

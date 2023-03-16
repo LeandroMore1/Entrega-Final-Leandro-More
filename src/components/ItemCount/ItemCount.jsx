@@ -5,6 +5,10 @@ import "./ItemCount.css"
 
 const ItemCount = ({stock , onAdd}) => {
 
+ 
+
+    
+
     const[cant,setCant] = useState(1)
 
     const aumentar = ()=>{
