@@ -5,16 +5,34 @@ import Swal from "sweetalert2"
 import { CartContext } from "../../context/CartContext"
 import { useContext } from "react"
 import { useNavigate } from 'react-router-dom';
+import { db } from '../firebaseConfig/firebase';
+import {getFirestore, addDoc, collection } from 'firebase/firestore';
+
 
 export const Formulary = () => {
 
-  const {vaciarListaProductos} = useContext(CartContext)
+  const {vaciarListaProductos , productCartList} = useContext(CartContext)
+
+  const db = getFirestore()
+  const refColeccion = collection(db, "payments")
+
+  const procesamiento = () => {
+    const names = productCartList.map((el)=> el.name)
+    addDoc(refColeccion, {
+      productos: names.toString(),
+      fechaCompra: Date(),
+      numOrden: Math.round(Math.random()*10000)
+    })
+  }
+
+  
 
   const navigate = useNavigate();
 
   const redirigirInicio = () =>{
       navigate('/')
   }
+
 
   const confirmacion = () => {
     Swal.fire({
@@ -24,40 +42,29 @@ export const Formulary = () => {
     })
       redirigirInicio();
       vaciarListaProductos();
+      procesamiento();
+    
   }
 
+
     return (
-       
-        <div className='formContainer'>
-        <h1 className='titleFrom'>Ingrese los siguientes datos para para realizar su compra:</h1>
-
-        <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-
-            <Form.Control type="email" placeholder="Ingresar mail" />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-
-            <Form.Control type="text" placeholder="Ingresar nombre" />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-
-            <Form.Control type="text" placeholder="Ingresar apellido" />
-          </Form.Group>
-    
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-
-            <Form.Control type="text" placeholder="Ingrese telefono" />
-          </Form.Group>
-          <div className="d-flex justify-content-center">
-          <Button onClick={confirmacion} variant="primary" className="botonComprar" type="submit">
-            Comprar
-          </Button>
+      <div className='formContainer'>
+      <h1 className='titleFrom'>Ingrese los siguientes datos para para realizar su compra:</h1>
+      <form className='formulario'>
+  <div className='d-flex align-items-center flex-column'>
+      <div>
+  <input type="text" id="fname" name="name" value="Nombre"></input>
+  <input type="text" id="lname" name="surname"  value="Apellido"></input>
+  <input type="text" id="lname" name="mail" value="Mail"></input>
+  <input type="text" id="lname" name="tel" value="Telefono"></input>
+  </div>
+          <div>
+  <Button onClick={confirmacion} className='botonComprar' type="submit" >Comprar</Button>
           </div>
-        </Form>
-        </div>
-       
+      
+  </div>
+</form> 
+</div>
+
       );
 }
