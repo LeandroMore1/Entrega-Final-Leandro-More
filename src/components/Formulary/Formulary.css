@@ -1,0 +1,17 @@
+.botonComprar{
+    background-color: #FD8F00;
+    text-decoration: none;
+    border-style: none;
+    font-weight: 700;
+}
+
+.titleFrom{
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.formContainer{
+    width: 300px;
+    text-align: center;
+    margin-top: 50px;
+}

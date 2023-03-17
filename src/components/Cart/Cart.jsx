@@ -1,30 +1,17 @@
 
 import "./Cart.css"
 import NavBar from "../NavBar/NavBar";
-import { CartContext, CartProvider } from "../../context/CartContext";
+import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
 import {CartProduct} from "../CartProduct/CartProduct";
 import Button from 'react-bootstrap/Button';
 import Swal from "sweetalert2";
-import { setDoc, doc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
 
     const {productCartList, vaciarListaProductos, totalPrecio} = useContext(CartContext)
-    
-    console.log(productCartList)
-
-    const afirmacion = () => {
-      Swal.fire({
-        icon: 'success',
-        title: '¡Gracias!',
-        text: '¡Tu compra ha sido registrada con exito!'
-      })
-      setTimeout(() => {
-        vaciarListaProductos()
-      }, 2000);
-      
-    }
+  
 
     const alertaLimpiar = () => {
       Swal.fire({
@@ -53,7 +40,7 @@ const Cart = () => {
         <div className="cuerpoCheckout">
         <NavBar/>
 
-        <h1 className="tituloCheckout">Carrito</h1>
+        <h1 className="tituloCheckout">Carrito:</h1>
         
         {
           productCartList.length>0 ?
@@ -66,8 +53,7 @@ const Cart = () => {
             <div className="d-flex containerBtn justify-content-evenly">
             <p className="precioTotal">Total compra: {totalPrecio()}$</p>
             <Button variant="dark" onClick={alertaLimpiar} className="btnCheckout btnLimpiar">Vaciar carrito</Button>
-            
-            <Button variant="dark" onClick={afirmacion}  className="btnCheckout">Comprar</Button>
+            <Link to="/Checkout"><Button variant="dark" className="btnCheckout">Siguiente</Button></Link>
             </div>
           </>
           :
