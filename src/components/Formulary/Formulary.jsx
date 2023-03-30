@@ -1,11 +1,11 @@
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
 import "./Formulary.css"
 import Swal from "sweetalert2"
 import { CartContext } from "../../context/CartContext"
 import { useContext } from "react"
 import { useNavigate } from 'react-router-dom';
-import { db } from '../firebaseConfig/firebase';
+
 import {getFirestore, addDoc, collection } from 'firebase/firestore';
 
 
@@ -13,18 +13,18 @@ export const Formulary = () => {
 
   const {vaciarListaProductos , productCartList} = useContext(CartContext)
 
+  const [email, setEmail] = useState("")
+  const [emailConf, setEmailConf] = useState("")
+  const [nombre, setNombre] = useState("")
+  const [apellido, setApellido] = useState("")
+  const [tel, setTel] = useState("")
+
   const db = getFirestore()
   const refColeccion = collection(db, "payments")
-
-  const procesamiento = () => {
-    const names = productCartList.map((el)=> el.name)
-    addDoc(refColeccion, {
-      productos: names.toString(),
-      fechaCompra: Date(),
-      numOrden: Math.round(Math.random()*10000)
-    })
+ 
+  const validar = () =>{
+    return nombre.length > 0 && apellido.length > 0 && tel.length > 0
   }
-
   
 
   const navigate = useNavigate();
@@ -35,14 +35,24 @@ export const Formulary = () => {
 
 
   const confirmacion = () => {
+    const numOrden = Math.round(Math.random()*10000)
+    const prods = productCartList.map(item => ` ${item.name} x ${item.cantTotal}`).toString()
+    const date = new Date().toLocaleDateString('es-AR');
+   
+    addDoc(refColeccion, {
+      productos: prods,
+      fechaCompra: date,
+      numOrden: numOrden,
+      estado: "generada"
+    })
     Swal.fire({
       icon: 'success',
       title: '¡Gracias!',
-      text: '¡Tu compra ha sido registrada con exito!'
+      text: `Tu número de orden de compra es: #${numOrden}`
     })
       redirigirInicio();
       vaciarListaProductos();
-      procesamiento();
+      
     
   }
 
@@ -53,13 +63,15 @@ export const Formulary = () => {
       <form className='formulario'>
   <div className='d-flex align-items-center flex-column'>
       <div>
-  <input type="text" id="fname" name="name" value="Nombre"></input>
-  <input type="text" id="lname" name="surname"  value="Apellido"></input>
-  <input type="text" id="lname" name="mail" value="Mail"></input>
-  <input type="text" id="lname" name="tel" value="Telefono"></input>
+      
+      <input type="text" onChange={(e)=>setNombre(e.target.value)} placeholder="Nombre" />
+      <input type="text" onChange={(e)=>setApellido(e.target.value)} placeholder="Apellido" />
+      <input type="text" onChange={(e)=>setTel(e.target.value)} placeholder="Telefono" />
+      <input type="email" onChange={(e)=>setEmail(e.target.value)} placeholder="E-mail"></input>
+      <input type="email" onChange={(e)=>setEmailConf(e.target.value)} placeholder="Reingrese su E-mail"></input>
   </div>
           <div>
-  <Button onClick={confirmacion} className='botonComprar' type="submit" >Comprar</Button>
+  <Button onClick={confirmacion} disabled={email !== emailConf || !validar()} className='botonComprar' type="submit" >Comprar</Button>
           </div>
       
   </div>

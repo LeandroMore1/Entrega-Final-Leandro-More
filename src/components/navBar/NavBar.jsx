@@ -4,6 +4,8 @@ import CartWidget from '../CartWidget/CartWidget';
 import "./NavBar.css"
 
 function NavBar(){
+
+   
     return(
         
         <div className="d-flex fila justify-content-between  align-items-center">

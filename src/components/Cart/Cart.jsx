@@ -26,7 +26,7 @@ const Cart = () => {
         if (result.isConfirmed) {
           Swal.fire(
             'Listo!',
-            'se han borrado los productos',
+            'se han borrado todos los productos',
             'success'
           )
           vaciarListaProductos()

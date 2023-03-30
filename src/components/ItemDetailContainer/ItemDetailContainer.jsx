@@ -17,31 +17,43 @@ const ItemDetailContainer = () => {
 
     const getProduct = async () => {
         const singleDoc = await getDoc(docRef);
-        setProduct(singleDoc.data())
-      };
+        if(singleDoc.exists()){
+          setProduct(singleDoc.data())
+      }};
+
 
     useEffect(() => {
         getProduct()
       }, []);
 
+      const [mostrar,setMostrar] = useState(false)
+      useEffect(()=>{
+      setTimeout(function() {
+      setMostrar(true)
+         }, 1000);
+       },
+      [])
       
-      //NOTE - dentro del return quise poner un condicional para que la pag tire error si el id del producto no existiera, pero 
-      // por alguna razon me tiraba error,  este es el codigo que quise usar dentro del return:
-      // //     {
-      //   product.ide === undefined? 
-      //   <p>error</p>   :<div className="description">
-      //  <ItemDetail product={product}/>
-      //  </div>
-        
-      // }
-
 
     return(
         <>
-        <NavBar/>
-        <div className="description">
-        <ItemDetail product={product}/>
-        </div>
+        {
+         
+          product.name?
+          <>
+          <NavBar/>
+          <div className="description">
+          <ItemDetail product={product}/>
+          </div> 
+          </>:
+          mostrar?
+          <>
+          
+          <NavBar/>
+          <h1 className="msgError">Error:</h1>
+          <h2 className="txtError d-flex justify-content-center">¡Parece que el producto que buscabas no existe!</h2>
+          </>:<></>
+        }
         </>
     )
 }
