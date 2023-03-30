@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Entrega-Final-Leandro-More/static/css/main.8dc15917.css",
+    "main.js": "/Entrega-Final-Leandro-More/static/js/main.0df6db99.js",
+    "static/media/esferaDragon.png": "/Entrega-Final-Leandro-More/static/media/esferaDragon.76c590daf8b0931f899a.png",
+    "index.html": "/Entrega-Final-Leandro-More/index.html",
+    "main.8dc15917.css.map": "/Entrega-Final-Leandro-More/static/css/main.8dc15917.css.map",
+    "main.0df6db99.js.map": "/Entrega-Final-Leandro-More/static/js/main.0df6db99.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8dc15917.css",
+    "static/js/main.0df6db99.js"
+  ]
+}
