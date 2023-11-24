@@ -4,7 +4,7 @@
 
 -En este proyecto elegi hacer una tienda basada en productos de dragon ball Z ya que es una de las series animadas de mi infancia
 
--En la carpeta "demonstracion Proyecto" guarde el gif para mostrar el funcionamiento de la pagina.
+-En la carpeta "demostracion Proyecto" guarde el gif para mostrar el funcionamiento de la pagina.
 
 -Dejo el firebase para que se muestren los "pagos" hechos en tiempo real:
 
