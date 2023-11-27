@@ -6,11 +6,11 @@
 
 -En la carpeta "demostracion Proyecto" guarde el gif para mostrar el funcionamiento de la pagina.
 
--Dejo el firebase para que se muestren los "pagos" hechos en tiempo real:
+- __podes visualizar el proyecto desde aca: https://leandromore-react.s3.us-east-2.amazonaws.com/index.html__
 
-https://console.firebase.google.com/u/0/project/zstore-36240/firestore/data/~2Fpayments~2FQZcUfqgddSx1Ed1dJTNr?hl=es
+-Dejo el firebase para que se muestren los "pagos" hechos en tiempo real: https://console.firebase.google.com/u/0/project/zstore-36240/firestore/data/~2Fpayments~2FQZcUfqgddSx1Ed1dJTNr?hl=es
 
-- **podes visualizar el proyecto desde aca: https://leandromore-react.s3.us-east-2.amazonaws.com/index.html**
+
 
 ### `librerias usadas:`
 
