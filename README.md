@@ -14,7 +14,7 @@
 
 ### `librerias usadas:`
 
-## `React Boostrap`
-## `Toastify`
-## `SweetAlert`
+# `React Boostrap`
+# `Toastify`
+# `SweetAlert`
 
