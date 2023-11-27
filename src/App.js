@@ -12,7 +12,7 @@ function App() {
   return (
     <>
     <CartProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/entregable-final-react">
 
           <Routes>
           
