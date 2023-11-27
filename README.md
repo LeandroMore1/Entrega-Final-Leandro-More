@@ -10,7 +10,7 @@
 
 https://console.firebase.google.com/u/0/project/zstore-36240/firestore/data/~2Fpayments~2FQZcUfqgddSx1Ed1dJTNr?hl=es
 
-- **podes visualizar el proyecto desde aca: https://leandromore-react.s3.us-east-2.amazonaws.com/index.html
+- **podes visualizar el proyecto desde aca: https://leandromore-react.s3.us-east-2.amazonaws.com/index.html**
 
 ### `librerias usadas:`
 
