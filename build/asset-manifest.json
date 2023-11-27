@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/entregable-final-react/static/css/main.8dc15917.css",
+    "main.js": "/entregable-final-react/static/js/main.aff00e6a.js",
+    "static/media/esferaDragon.png": "/entregable-final-react/static/media/esferaDragon.76c590daf8b0931f899a.png",
+    "index.html": "/entregable-final-react/index.html",
+    "main.8dc15917.css.map": "/entregable-final-react/static/css/main.8dc15917.css.map",
+    "main.aff00e6a.js.map": "/entregable-final-react/static/js/main.aff00e6a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8dc15917.css",
+    "static/js/main.aff00e6a.js"
+  ]
+}
