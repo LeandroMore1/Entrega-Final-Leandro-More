@@ -1,6 +1,6 @@
 
 
-### Descripcion del proyecto
+## Descripcion del proyecto
 
 -En este proyecto elegi hacer una tienda basada en productos de dragon ball Z
 
@@ -12,9 +12,9 @@
 
 
 
-### `librerias usadas:`
+## `librerias usadas:`
 
-# `React Boostrap`
-# `Toastify`
-# `SweetAlert`
+### `React Boostrap`
+### `Toastify`
+### `SweetAlert`
 
